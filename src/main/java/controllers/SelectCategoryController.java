@@ -1,7 +1,7 @@
 package controllers;
 
-import removedfiles.Exercise;
-import removedfiles.ExerciseDao;
+import models.Exercise;
+import dao.ExerciseDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
