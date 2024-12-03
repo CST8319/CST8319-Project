@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="removedfiles.Exercise" %>
+<%@ page import="models.Exercise" %>
 <!DOCTYPE html>
 <html>
 <head>
