@@ -1,6 +1,6 @@
 package models;
 
-import removedfiles.Exercise;
+import models.Exercise;
 
 public class MentalHealth implements Exercise {
     private int id;
