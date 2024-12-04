@@ -7,7 +7,7 @@ This is a **Java EE** application that focuses on improving both physical fitnes
 ## Features
 
 ### User Authentication  
-- Secure account creation with a 6-digit email verification code.  
+- Secure account creation with a 4-digit email verification code.  
 - Password reset functionality using the same email-based verification process.
 
 ### Physical Activities  
