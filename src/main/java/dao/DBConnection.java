@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnection {
     private static final String dbUser = "root";
     private static final String dbPassword = "admin";
-    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/capstone";
+    private static final String CONN_STRING = "jdbc:mysql://localhost:3306/getwell-getfit-db";
 
     public static Connection getConnectionToDatabase() {
         Connection connection = null;
