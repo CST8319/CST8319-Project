@@ -47,7 +47,7 @@ This is a **Java EE** application that focuses on improving both physical fitnes
    git clone https://github.com/CST8319/CST8319-Project.git
 
 2. **Set Up the Database**:
-- Create a MySQL database and import the schema provided in db/schema.sql.
+- Create a MySQL database and import the schema provided in Capstone.sql.
 - Update database connection details in WEB-INF/web.xml or the persistence.xml file.
 
 3. **Configure Email**:
