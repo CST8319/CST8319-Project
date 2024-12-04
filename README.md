@@ -61,7 +61,7 @@ This is a **Java EE** application that focuses on improving both physical fitnes
 ---
 
 ## Usage
-1. Create an Account: Sign up and verify your email with the 6-digit code.
+1. Create an Account: Sign up and verify your email with the 4-digit code.
 2. Explore Features: Access personalized workouts, mental health activities, and track your progress.
 3. Search and Save: Use filters to find specific exercises and save your favorites.
 4. Monitor Progress: Use the dashboard to track goals, history, and favorites.
