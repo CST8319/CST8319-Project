@@ -1,6 +1,6 @@
 -- Create the database
-CREATE DATABASE getwell-getfit-db;
-USE getwell-getfit-db;
+CREATE DATABASE getwell_getfit_db;
+USE getwell_getfit_db;
 
 -- Create the registration table
 CREATE TABLE registration (
