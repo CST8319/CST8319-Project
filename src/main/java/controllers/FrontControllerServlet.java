@@ -32,6 +32,7 @@ public class FrontControllerServlet extends HttpServlet {
         controllers.put("selectCategory", new SelectCategoryController());
         controllers.put("selectExercise", new SelectExerciseController());
         controllers.put("verify", new VerifyController());
+        controllers.put("favorites", new FavoritesController());
     }
 
     @Override
