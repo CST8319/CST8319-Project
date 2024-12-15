@@ -42,6 +42,17 @@ CREATE TABLE exercises (
     instructions TEXT
 );
 
+-- Create the favorites table
+CREATE TABLE favorites (
+  favorite_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  exercises_id INT NOT NULL,
+  date_favorited DATE NULL,
+  FOREIGN KEY (user_id) REFERENCES profile(userId),
+  FOREIGN KEY (exercises_id) REFERENCES exercises(id)
+);
+ 
+
 -- Insert admin user into the registration table
 INSERT INTO registration (username, password, email, isVerified) VALUES
 ('admin', 'admin', 'admin@example.com', 1);
