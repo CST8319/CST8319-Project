@@ -38,17 +38,16 @@
             <% 
         	if (favorites.get(exercise.getId()) != null) {
      	%>
-    		<a href="favorites?action=unfavorite&id=<%= exercise.getId()%>&category=<%= request.getAttribute("category")%>" title="Favorite" class="favorite-link">
+    		<a href="favorites?action=unfav_category&id=<%= exercise.getId()%>&category=<%= request.getAttribute("category")%>" title="Favorite" class="favorite-link">
     			<i class="fa-solid fa-star"></i> <!-- Font Awesome Star Icon -->
 			</a>
 		<%	
         	}
         	else {
     	%>		
-    		<a href="favorites?action=favorite&id=<%= exercise.getId()%>&category=<%= request.getAttribute("category")%>" title="Favorite" class="favorite-link">
+    		<a href="favorites?action=fav_category&id=<%= exercise.getId()%>&category=<%= request.getAttribute("category")%>" title="Favorite" class="favorite-link">
     			<i class="fa-regular fa-star"></i> <!-- Font Awesome Star Icon -->
 			</a>
-		
     	<% 
         	}
         %>

@@ -25,7 +25,7 @@
 
 	</div>
 	<div class="profile-header">
-		<a href="#" title="Favorite" class="favorite-link">
+		<a href="favorites?action=view_favorites" title="Favorite" class="favorite-link">
     		<i class="fa-regular fa-star"></i> <!-- Font Awesome Star Icon -->
 		</a>
 		<form action="profile" method="get">
