@@ -29,17 +29,13 @@ public class SelectCategoryController implements Controller {
 
     private void handleGetRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String category = request.getParameter("category");
-    	HttpSession session = request.getSession();
-		Integer userId = (Integer) session.getAttribute("userId");
+    
         if (category != null && !category.isEmpty()) {
-            FavoritesDao favoritesDao = new FavoritesDao();
         	ExerciseDao exerciseDao = new ExerciseDao();
             List<Exercise> exercises = exerciseDao.getExercisesByCategory(category);
             request.setAttribute("category", category);
             request.setAttribute("exercises", exercises);
-            // retrieve favorites list
-            //HashMap<Integer, Exercise> favorites = favoritesDao.displayFavorites(userId);
-            HashMap<Integer, Exercise> favorites = new HashMap<Integer, Exercise>();
+    
             request.getRequestDispatcher("/WEB-INF/views/category.jsp").forward(request, response);
         } else {
             response.sendRedirect("physicalExercises");

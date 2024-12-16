@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Register;
+import dao.FavoritesDao;
 import dao.UserDao;
+import models.Exercise;
 
 public class LoginController implements Controller {
 
@@ -28,6 +31,12 @@ public class LoginController implements Controller {
                 session.setAttribute("username", user.getUsername()); // Store username in session
                 session.setAttribute("userId", user.getId()); // Store userId in session
                 session.setAttribute("email", user.getEmail());
+                
+                //store favorites into session on login
+                FavoritesDao favoriteDao = new FavoritesDao();
+        		HashMap<Integer, Exercise> favorites = favoriteDao.displayFavorites(user.getId()); //Dao ensures not null
+        
+        		session.setAttribute("favorites", favorites);
 
                 if (!userdao.isUserVerified(usernameOrEmail)) {
                     response.sendRedirect("verify");

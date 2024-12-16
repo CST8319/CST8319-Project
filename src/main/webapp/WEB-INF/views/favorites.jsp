@@ -21,13 +21,9 @@
 <h2>Favorites</h2>
 <%
 	HashMap<Integer, Exercise> favorites = (HashMap<Integer, Exercise>) session.getAttribute("favorites");
-	//if favorites is empty 
-	if (favorites == null) {
-		favorites = new HashMap<>();
-	}
-	//List<Exercise> exercises = (List<Exercise>) request.getAttribute("exercises");
-    if (favorites != null || !favorites.isEmpty()) {
-        for (int id : favorites.keySet()) {
+	
+    if (favorites != null && !favorites.isEmpty()) {
+    	for (int id : favorites.keySet()) {
 %>
     <div>
         <h3><%= favorites.get(id).getName() %></h3>
@@ -52,7 +48,6 @@
 %>
 
 <jsp:include page="backToHomeButton.jsp" />
-
 
 </body>
 </html>

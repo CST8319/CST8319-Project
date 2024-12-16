@@ -21,10 +21,7 @@
 <h2>Exercises for <%= request.getAttribute("category") %></h2>
 <%
 	HashMap<Integer, Exercise> favorites = (HashMap<Integer, Exercise>) session.getAttribute("favorites");
-	//if favorites is empty 
-	if (favorites == null) {
-		favorites = new HashMap<>();
-	}
+	
 	List<Exercise> exercises = (List<Exercise>) request.getAttribute("exercises");
     if (exercises != null) {
         for (Exercise exercise : exercises) {
@@ -36,6 +33,8 @@
             <input type="hidden" name="exerciseId" value="<%= exercise.getId() %>">
             <input type="submit" value="View Exercise">
             <% 
+            //verify if any exercises by category is in the favorites hash
+            //if not found returns null
         	if (favorites.get(exercise.getId()) != null) {
      	%>
     		<a href="favorites?action=unfav_category&id=<%= exercise.getId()%>&category=<%= request.getAttribute("category")%>" title="Favorite" class="favorite-link">
@@ -63,7 +62,6 @@
 %>
 
 <jsp:include page="backToHomeButton.jsp" />
-
 
 </body>
 </html>

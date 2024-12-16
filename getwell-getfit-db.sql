@@ -44,12 +44,11 @@ CREATE TABLE exercises (
 
 -- Create the favorites table
 CREATE TABLE favorites (
-  -- favorite_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
   exercise_id INT NOT NULL,
   date_favorited DATE NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES profile(userId),
-  FOREIGN KEY (exercises_id) REFERENCES exercises(id)
+  --FOREIGN KEY (user_id) REFERENCES profile(userId),
+  --FOREIGN KEY (exercises_id) REFERENCES exercises(id)
 );
  
 
