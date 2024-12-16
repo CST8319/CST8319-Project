@@ -10,7 +10,7 @@
 
 	<main>
 		<div class="container">
-			<h1>Cap'n Stone Fitness</h1>
+			<h1>Get Well Get Fit</h1>
 			<p>Please login to access site content.</p>
 
 			<form action="login" method="post">

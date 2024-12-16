@@ -21,4 +21,21 @@ public class ExerciseFactory {
 		}
 		
 	}
+	//This initializes a constructor for storing favorites (without image url or instructions)
+	public static Exercise createExercise(int id, String name, String category, String description) {
+		switch(category.toLowerCase()) {
+			case "target muscle groups":
+			case "cardio exercises":
+			case "yoga poses":
+				return new PhysicalHealth(id, name, category, description, "", "");
+			case "relaxation techniques":
+			case "mindfulness exercises":
+			case "anger management":
+					return new MentalHealth(id, name, category, description, "", "");
+			default:
+				throw new IllegalArgumentException("Unknown category for Activity: " + category);
+		}
+		
+	}
 }
+
