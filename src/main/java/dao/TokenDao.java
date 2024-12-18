@@ -6,8 +6,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import services.TokenService;
 
+/**
+ * Data Access Object (DAO) class for handling database operations related to
+ * tokens.
+ * Implements the TokenService interface to manage verification and reset
+ * tokens.
+ */
 public class TokenDao implements TokenService {
 
+    /**
+     * Saves a verification code for a given email in the database. If a record
+     * already exists,
+     * it updates the token.
+     * 
+     * @param email            the email address associated with the verification
+     *                         code
+     * @param verificationCode the verification code to be saved
+     */
     public void saveVerificationCode(String email, String verificationCode) {
         try {
             Connection connection = DBConnection.getConnectionToDatabase();
@@ -22,6 +37,14 @@ public class TokenDao implements TokenService {
         }
     }
 
+    /**
+     * Saves a reset code for a given email in the database. If a record already
+     * exists,
+     * it updates the token.
+     * 
+     * @param email     the email address associated with the reset code
+     * @param resetCode the reset code to be saved
+     */
     public void saveResetCode(String email, String resetCode) {
         try {
             Connection connection = DBConnection.getConnectionToDatabase();
@@ -36,6 +59,13 @@ public class TokenDao implements TokenService {
         }
     }
 
+    /**
+     * Retrieves the verification code associated with a given email.
+     * 
+     * @param email the email address for which the verification code is to be
+     *              retrieved
+     * @return the verification code if found, otherwise null
+     */
     public String getVerificationCode(String email) {
         String token = null;
         try {
@@ -53,6 +83,12 @@ public class TokenDao implements TokenService {
         return token;
     }
 
+    /**
+     * Retrieves the reset code associated with a given email.
+     * 
+     * @param email the email address for which the reset code is to be retrieved
+     * @return the reset code if found, otherwise null
+     */
     public String getResetCode(String email) {
         String token = null;
         try {
@@ -69,6 +105,15 @@ public class TokenDao implements TokenService {
         }
         return token;
     }
+
+    /**
+     * Validates a verification code for a given email.
+     * 
+     * @param email            the email address to validate the verification code
+     *                         for
+     * @param verificationCode the verification code to validate
+     * @return true if the verification code is valid, otherwise false
+     */
     public boolean validateVerificationCode(String email, String verificationCode) {
         boolean isValid = false;
         try {
@@ -87,6 +132,14 @@ public class TokenDao implements TokenService {
         return isValid;
     }
 
+    /**
+     * Validates a reset code for a given email and deletes the token upon
+     * successful validation.
+     * 
+     * @param email     the email address to validate the reset code for
+     * @param resetCode the reset code to validate
+     * @return true if the reset code is valid, otherwise false
+     */
     public boolean validateResetCode(String email, String resetCode) {
         boolean isValid = false;
         try {
@@ -106,6 +159,13 @@ public class TokenDao implements TokenService {
         return isValid;
     }
 
+    /**
+     * Deletes a token of a specific type for a given email.
+     * 
+     * @param email the email address associated with the token to be deleted
+     * @param token the token to be deleted
+     * @param type  the type of the token (e.g., 'verification' or 'reset')
+     */
     public void deleteVerificationToken(String email, String token, String type) {
         try {
             Connection connection = DBConnection.getConnectionToDatabase();
