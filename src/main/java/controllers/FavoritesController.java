@@ -16,15 +16,16 @@ import dao.FavoritesDao;
 import factories.ExerciseFactory;
 import models.Exercise;
 
-
+/*
+ * Handles user actions related to favorites feature, including page forwards to your favorites from the navigation bar, and
+ * favoriting and unfavoriting after selecting exercises by category. The user can also unfavorite exercises found on the favorites page.
+ * 
+ */
 public class FavoritesController implements Controller  {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * Handles user actions related to favorites feature
-		 * 
-		 */
+		
 		String action = request.getParameter("action");
 	
 		if ("GET".equalsIgnoreCase(request.getMethod())) {

@@ -1,7 +1,11 @@
 package models;
 
 import models.Exercise;
-
+/*
+ * Mental health object class for storing database exercise table/model, contains fields such as
+ * id, name, category, description, link to image, and instructions.
+ * 
+ */
 public class MentalHealth implements Exercise {
     private int id;
     private String name;

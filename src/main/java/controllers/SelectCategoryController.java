@@ -1,6 +1,5 @@
 package controllers;
 
-
 import models.Exercise;
 import dao.ExerciseDao;
 import dao.FavoritesDao;
@@ -15,7 +14,11 @@ import controllers.Controller;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-
+/*
+ * Handles forwarding to the category page once a user selects a category and will display a list of exercises.
+ * This controller can handle categories from both physical and mental activities.
+ * 
+ */
 public class SelectCategoryController implements Controller {
 
     @Override

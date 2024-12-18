@@ -9,6 +9,12 @@ import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 
+/*
+ * Handles forwarding to the homepage during log in. If there are problems with the userid, username or verification 
+ * the user will not be able to access the homepage and redirected back to login or verification.
+ * 
+ */
+
 public class HomepageController implements Controller{
     @Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

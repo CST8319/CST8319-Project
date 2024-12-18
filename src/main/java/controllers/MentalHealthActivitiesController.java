@@ -4,7 +4,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/*
+ * Handles mental health related requests from the homepage and forwards a user to the mental health 
+ * page where they can select a category.
+ * 
+ */
 public class MentalHealthActivitiesController implements Controller {
 
     @Override

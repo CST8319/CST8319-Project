@@ -11,7 +11,10 @@ import java.util.List;
 
 import factories.ExerciseFactory;
 import models.Exercise;
-
+/*
+ * Database access object (DAO) for requests related to favorites, including adding, removing and retrieving a user's favorites 
+ * from the favorites and exercises table.
+ */
 public class FavoritesDao {
 	
 	private static final String ADD_FAVORITE_BY_EXERCISE_ID = "INSERT INTO favorites (user_id, exercise_id, date_favorited) VALUES (?, ?, ?);";

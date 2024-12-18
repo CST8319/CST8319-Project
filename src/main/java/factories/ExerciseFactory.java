@@ -3,7 +3,12 @@ package factories;
 import models.Exercise;
 import models.PhysicalHealth;
 import models.MentalHealth;	
-
+/*
+ * A factory design pattern used to create Exercise objects and store relevant data such as the exercise name, category, 
+ * a description, link to images and instructions. The exercise objects can be stored in lists and implemented
+ * by physical or mental health depending on the category. A separate constructor is used when handling favorites.
+ * 
+ */
 public class ExerciseFactory {
 
 	public static Exercise createExercise(int id, String name, String category, String description, String imageUrl, String instructions) {
