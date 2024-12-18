@@ -9,41 +9,58 @@ import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 
-/*
- * Handles forwarding to the homepage during log in. If there are problems with the userid, username or verification 
- * the user will not be able to access the homepage and redirected back to login or verification.
- * 
+/**
+ * Controller for handling the homepage access.
+ * It ensures that only authenticated and verified users can access the
+ * homepage.
+ * If the user is not authenticated or verified, they are redirected to the
+ * login or verification page.
  */
+public class HomepageController implements Controller {
 
-public class HomepageController implements Controller{
-    @Override
+	/**
+	 * Executes the logic for displaying the homepage.
+	 * <p>
+	 * If the user is not logged in or not verified, they are redirected to the
+	 * login or verification page.
+	 * Otherwise, the user is forwarded to the homepage.
+	 *
+	 * @param request  the HttpServletRequest object containing the request details
+	 * @param response the HttpServletResponse object to send the response
+	 * @throws ServletException if the request could not be processed
+	 * @throws IOException      if an input/output error occurs
+	 */
+	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Handling GET request to display the homepage
 		if ("GET".equalsIgnoreCase(request.getMethod())) {
 			HttpSession session = request.getSession();
-	        Integer userId = (Integer) session.getAttribute("userId");
-	        
-	        if (userId == null) {
-	            response.sendRedirect("login");
-	            return;
-	        }
-	        
-	        UserDao userdao = new UserDao();
-	      
-	        if (!userdao.isUserVerified(userId)) {
-	            response.sendRedirect("verify");
-	            return;
-	        }
-	        
-	        String username = (String) session.getAttribute("username");
-	        
-	        if (username == null) {
-	            response.sendRedirect("login");
-	            return;
-	        }
-	        
-	        request.getRequestDispatcher("/WEB-INF/views/homepage.jsp").forward(request, response);
-        }
-		
-	}
+			Integer userId = (Integer) session.getAttribute("userId");
 
+			// If user is not logged in, redirect to the login page
+			if (userId == null) {
+				response.sendRedirect("login");
+				return;
+			}
+
+			UserDao userDao = new UserDao();
+
+			// If user is not verified, redirect to the verification page
+			if (!userDao.isUserVerified(userId)) {
+				response.sendRedirect("verify");
+				return;
+			}
+
+			String username = (String) session.getAttribute("username");
+
+			// If username is missing, redirect to the login page
+			if (username == null) {
+				response.sendRedirect("login");
+				return;
+			}
+
+			// Forward the request to the homepage view
+			request.getRequestDispatcher("/WEB-INF/views/homepage.jsp").forward(request, response);
+		}
+	}
 }
